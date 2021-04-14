@@ -1,1 +1,6 @@
-p{ background: blueviolet; }
+p{ background: rgb(207, 240, 180); }
+
+.container{width: 170px;height: auto; display: block; border: 1px solid black;overflow: hidden;}
+.container .box{margin:2px; border: 1px solid orange; width: 50px; height: 25px; float: left;text-align: center;padding-top: 5px} 
+.container .box:hover{ background-color: orange;color: black;font-weight: bold;cursor: pointer;}
+.result{ font-weight: bold; color: chocolate; width: 95%; height: 20px; margin: 3px;display: block;float: left;border: 1px solid}
