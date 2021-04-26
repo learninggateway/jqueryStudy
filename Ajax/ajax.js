@@ -16,18 +16,33 @@ $(document).ready(function(){
             error:function(){
                 alert('Error');
             }
+        });
     });
 
-    // $.ajax("www.google.com",{
-    //     type:'GET',
-    //     beforeSend:function(){},
-    //     success:function(data){},
-    //     error:function(){}
-    // });
-
+    $('#postBtn').click(function(){
+        $.ajax('https://jsonplaceholder.typicode.com/posts/',{
+            type:'POST',
+            //data:JSON.stringify({"userId": 11,"id": 101,"title": "Test","body": "Test"}),
+            data:{"userId": 11,"id": 101,"title": "Test","body": "Test"},
+            beforeSend:function(){
+                $('#loader').css({display:'block'});
+            },
+            success:function(data){
+                $('#result').html(data.id);
+                $('#loader').css({display:'none'});
+            },
+            error:function(){
+                alert('Error');
+            }
+        });
     });
 
-
-
+    $("#AjaxpostBtn").click(function(){
+        $.post("https://jsonplaceholder.typicode.com/posts",
+        {"userId": 11,"id": 101,"title": "Test","body": "Test"},
+        function(data, status){
+          alert("Data: " + data.id + "\nStatus: " + status);
+        });
+      });
 
 });
